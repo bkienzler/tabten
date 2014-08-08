@@ -17,8 +17,8 @@
     <div><%= f.password_field :current_password, autocomplete: "off", class: "form-control", placeholder: "Current password" %></div>
     <br />
     <%= f.submit "Update", class: "btn btn-danger navbar-btn" %>
-    <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn navbar-btn" %>
     <% end %>
+    <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn navbar-btn" %>
     <%= link_to "Back", :back %>
   </div>
 </div>
