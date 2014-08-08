@@ -1,0 +1,18 @@
+<% if user_signed_in? %>
+<div class="panel panel-default">
+  <div class="panel-heading">Tischtennis Rangliste</div>
+  <div class="panel-body">
+    <p>Hier stehen die Spieler die Du aktuell fordern kannst.</p>
+  </div>
+</div>
+<% else %>
+<div class="panel panel-default">
+  <div class="panel-heading">Tischtennis Rangliste</div>
+  <div class="panel-body">
+    <p>Melde Dich jetzt an, um bei TabTen teilzunehmen.</p>
+    <p>Fordere andere Spieler heraus und erobere die Spitze der Rangliste.</p>
+    <%= link_to "Log in", new_user_session_path, class: "btn navbar-btn" %>
+    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-danger navbar-btn" %>
+  </div>
+</div>
+<% end %>

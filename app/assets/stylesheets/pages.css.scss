@@ -1,0 +1,14 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.navbar-custom {
+position: fixed;
+top: 0;
+left: 0;
+border: 5px solid #ffccbb;
+border-radius: 0;
+background-color: rgba(255,255,255,.9);
+width: 100%;
+z-index: 2000;
+}
