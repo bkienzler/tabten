@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140808202729) do
+ActiveRecord::Schema.define(version: 20140808222137) do
 
   create_table "matches", force: true do |t|
-    t.integer  "player1",      null: false
-    t.integer  "player2",      null: false
+    t.integer  "user_1",       null: false
+    t.integer  "user_2",       null: false
     t.datetime "date_created"
     t.datetime "date_played"
     t.datetime "created_at"
