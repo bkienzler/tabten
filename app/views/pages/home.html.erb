@@ -2,7 +2,9 @@
 <div class="panel panel-default">
   <div class="panel-heading">Tischtennis Rangliste</div>
   <div class="panel-body">
-    <p>Hier stehen die Spieler die Du aktuell fordern kannst.</p>
+    <% @users.each do |user| %>
+    <div class="btn btn-danger navbar-btn"><%= user.email %></div>
+    <% end %>
   </div>
 </div>
 <% else %>
