@@ -11,6 +11,11 @@
         <% edge.each do |user| %>
         <div class = "btn btn-danger navbar-btn user"><%= user.name %></div>
         <% end %>
+        <% if users.empty? %>
+          <% (n-@users.size).times.do %>
+            <div class = "btn btn-danger navbar-btn user"></div>
+          <% end %>
+        <% end %>
       </div>
       <div class = "clear"></div>
       <% n += 1 %>
@@ -39,6 +44,11 @@
       <div class = "level">
         <% edge.each do |user| %>
         <div class = "btn btn-danger navbar-btn user"><%= user.name %></div>
+        <% end %>
+        <% if users.empty? %>
+          <% (n-@users.size).times.do %>
+            <div class = "btn btn-danger navbar-btn user"></div>
+          <% end %>
         <% end %>
       </div>
       <div class = "clear"></div>
