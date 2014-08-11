@@ -30,3 +30,26 @@
   margin-right: auto;
   margin-left: auto;
 }
+
+.pyramid {
+  text-align: center;
+  width: 100%;
+}
+
+.level {
+  display: inline-block;
+}
+
+.user {
+  float: left;
+  margin-right: 5px;
+}
+
+.user:last-child {
+  float: left;
+  margin-right: 0px;
+}
+
+.clear {
+  clear: left;
+}

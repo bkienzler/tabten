@@ -1,10 +1,21 @@
 <% if user_signed_in? %>
 <div class="panel panel-default">
   <div class="panel-heading">Tischtennis Rangliste</div>
-  <div class="panel-body">
-    <% @users.each do |user| %>
-    <div class="btn btn-danger navbar-btn"><%= user.name %></div>
-    <% end %>
+  <div class="panel-body-ranking">
+    <div class = "pyramid">
+      <% n = 1 %>
+      <% users = @users.to_a %>
+      <% until users.empty? %>
+      <% edge = users.shift(n) %>
+      <div class = "level">
+        <% edge.each do |user| %>
+        <div class = "btn btn-danger navbar-btn user"><%= user.name %></div>
+        <% end %>
+      </div>
+      <div class = "clear"></div>
+      <% n += 1 %>
+      <% end %>
+    </div>
   </div>
 </div>
 <% else %>
@@ -15,6 +26,25 @@
     <p>Fordere andere Spieler heraus und erobere die Spitze der Rangliste.</p>
     <%= link_to "Log in", new_user_session_path, class: "btn navbar-btn" %>
     <%= link_to "Sign up", new_user_registration_path, class: "btn btn-danger navbar-btn" %>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">Tischtennis Rangliste</div>
+  <div class="panel-body-ranking">
+    <div class = "pyramid">
+      <% n = 1 %>
+      <% users = @users.to_a %>
+      <% until users.empty? %>
+      <% edge = users.shift(n) %>
+      <div class = "level">
+        <% edge.each do |user| %>
+        <div class = "btn btn-danger navbar-btn user"><%= user.name %></div>
+        <% end %>
+      </div>
+      <div class = "clear"></div>
+      <% n += 1 %>
+      <% end %>
+    </div>
   </div>
 </div>
 <% end %>
