@@ -12,7 +12,7 @@
         <div class = "btn btn-danger navbar-btn user"><%= user.name %></div>
         <% end %>
         <% if users.empty? %>
-          <% (n-@users.size).times.do %>
+        <% (n-edge.size).times do %>
             <div class = "btn btn-danger navbar-btn user"></div>
           <% end %>
         <% end %>
@@ -46,7 +46,7 @@
         <div class = "btn btn-danger navbar-btn user"><%= user.name %></div>
         <% end %>
         <% if users.empty? %>
-          <% (n-@users.size).times.do %>
+        <% (n-edge.size).times do %>
             <div class = "btn btn-danger navbar-btn user"></div>
           <% end %>
         <% end %>
