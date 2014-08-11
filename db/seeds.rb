@@ -8,11 +8,22 @@
 
 testUsers = Array["Ben", "Peter", "Klaus", "Harry", "Hans", "Franz", "Jürgen"]
 
+## add missing testUsers
 testUsers.each do |username|
-  User.find_or_create_by! :name => username, :email => username + "@gmail.com" do |user|
+  User.find_or_create_by! :name => username do |user|
+    user.ranking = testUsers.index(username) + 1
+    user.email = username + "gmail.com"
     user.sign_in_count = 0
     user.password = "12345678"
     user.password_confirmation = "12345678"
   end
 end
-    
+
+## add missing rankings
+insertedRankings = User.where.not({:ranking => nil}).pluck(:ranking)
+allRankings = Array(1..User.count)
+rankingsToInsert = allRankings - insertedRankings
+User.where({:ranking => nil}).each do |user|  
+  user.ranking = rankingsToInsert.shift
+  user.save
+end
