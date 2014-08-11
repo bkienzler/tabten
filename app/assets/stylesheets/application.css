@@ -43,6 +43,8 @@
 .user {
   float: left;
   margin-right: 5px;
+  height: 34px;
+  min-width: 100px;
 }
 
 .user:last-child {
@@ -52,4 +54,8 @@
 
 .clear {
   clear: left;
+}
+
+.blank {
+  visibility:hidden;
 }
