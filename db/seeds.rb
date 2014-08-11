@@ -5,4 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create! :name => "TestUser", :email => "TestUser@gmail.com", :sign_in_count => 0, :password => "12345678", :password_confirmation => "12345678"
+
+testUsers = Array["Ben", "Peter", "Klaus", "Harry", "Hans", "Franz", "Jürgen"]
+
+testUsers.each do |username|
+  User.find_or_create_by! :name => username, :email => username + "@gmail.com" do |user|
+    user.sign_in_count = 0
+    user.password = "12345678"
+    user.password_confirmation = "12345678"
+  end
+end
+    
