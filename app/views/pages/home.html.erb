@@ -1,29 +1,4 @@
-<% if user_signed_in? %>
-<div class="panel panel-default">
-  <div class="panel-heading">Tischtennis Rangliste</div>
-  <div class="panel-body-ranking">
-    <div class = "pyramid">
-      <% n = 1 %>
-      <% users = @users.to_a %>
-      <% until users.empty? %>
-      <% edge = users.shift(n) %>
-      <div class = "level">
-        <% edge.each do |user| %>
-        <div class = "btn btn-danger navbar-btn user"><%= user.name %></div>
-        <% end %>
-        <% if users.empty? %>
-        <% (n-edge.size).times do %>
-            <div class = "btn btn-danger navbar-btn user blank"></div>
-          <% end %>
-        <% end %>
-      </div>
-      <div class = "clear"></div>
-      <% n += 1 %>
-      <% end %>
-    </div>
-  </div>
-</div>
-<% else %>
+<% if !user_signed_in? %>
 <div class="panel panel-default">
   <div class="panel-heading">Tischtennis Rangliste</div>
   <div class="panel-body">
@@ -33,6 +8,17 @@
     <%= link_to "Sign up", new_user_registration_path, class: "btn btn-danger navbar-btn" %>
   </div>
 </div>
+<% challenge_range = Array.new %>
+<% else %>
+<% triangular_numbers = Array[0] %>
+<% n = 0 %>
+<% while n < users.cout %>
+<% n += 1 %>
+<% triangular_numbers << triangular_numbers[-1] + n %>
+<% end %>
+<% level = triangular_numbers.index{|x| x > current_user.ranking} - 1 %>
+<% challenge_range =  Array(current_user.ranking-1..(current_user.ranking - (level - 1)))%>
+<% end %>
 <div class="panel panel-default">
   <div class="panel-heading">Tischtennis Rangliste</div>
   <div class="panel-body-ranking">
@@ -47,7 +33,7 @@
         <% end %>
         <% if users.empty? %>
         <% (n-edge.size).times do %>
-            <div class = "btn btn-danger navbar-btn user blank"></div>
+            <div class = "btn btn-danger navbar-btn user"></div>
           <% end %>
         <% end %>
       </div>
@@ -57,4 +43,3 @@
     </div>
   </div>
 </div>
-<% end %>
