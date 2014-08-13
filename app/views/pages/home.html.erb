@@ -20,11 +20,11 @@
       <% edge = users.shift(n) %>
       <div class = "level">
         <% edge.each do |user| %>
-        <%= content_tag(:div, user.name, :class => "btn btn-danger navbar-btn user #{(challenge_range.include?(user.ranking) ? "challenge" : "")}") %>
+        <%= content_tag(:div, user.name, :class => "#{(challenge_range.include?(user.ranking) ? "btn btn-success navbar-btn user " : "btn navbar-btn user ")}") %>
         <% end %>
         <% if users.empty? %>
         <% (n-edge.size).times do %>
-            <div class = "btn btn-danger navbar-btn user"></div>
+            <div class = "btn navbar-btn user blank"></div>
           <% end %>
         <% end %>
       </div>
