@@ -15,6 +15,18 @@
 *= require_self
 */
 
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+
+/* entypo */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+  margin-right: 5px;
+}
+
+*{
+  -webkit-transition: all .25s ease-in-out 0s;
+}
+
 .navbar-custom {
   position: fixed;
   top: 0;
