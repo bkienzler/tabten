@@ -6,13 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-testUsers = Array["Ben", "Peter", "Klaus", "Harry", "Hans", "Franz", "Jürgen"]
+testUsers = Array["ben", "peter", "klaus", "harry", "hans", "franz", "juergen"]
 
 ## add missing testUsers
 testUsers.each do |username|
   User.find_or_create_by! :name => username do |user|
     user.ranking = testUsers.index(username) + 1
-    user.email = username + "gmail.com"
+    user.email = username + "@gmail.com"
     user.sign_in_count = 0
     user.password = "12345678"
     user.password_confirmation = "12345678"

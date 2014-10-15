@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
+  #get 'profiles/show'
+
   devise_for :users
   root "pages#home"
+
+  resources :users, :only => :show
+  constraints(Subdomain) do
+    match '/' => 'profiles#show'
+  end
+  root :to => "home#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
