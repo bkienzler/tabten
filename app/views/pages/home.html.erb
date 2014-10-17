@@ -9,6 +9,13 @@
   </div>
 </div>
 <% end %>
+
+<h3>Home</h3>
+<% @users.each do |user| %>
+  <p><%= user.name %> <%= link_to root_url(:subdomain => user.name), root_url(:subdomain => user.name) %></p>
+<% end %>
+
+
 <div class="panel panel-default">
   <div class="panel-heading">Tischtennis Rangliste</div>
   <div class="panel-body-ranking">
